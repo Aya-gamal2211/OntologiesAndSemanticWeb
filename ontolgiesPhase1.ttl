@@ -4,7 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2> .
+@base <http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#> .
 
 <http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2> rdf:type owl:Ontology .
 
@@ -17,8 +17,8 @@
           rdfs:subPropertyOf owl:topObjectProperty ;
           owl:inverseOf :isActorOf ;
           rdf:type owl:FunctionalProperty ;
-          rdfs:domain :Actor ;
-          rdfs:range :Movie .
+          rdfs:domain :Movie ;
+          rdfs:range :Actor .
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#hasDirector
@@ -26,8 +26,8 @@
              rdfs:subPropertyOf owl:topObjectProperty ;
              owl:inverseOf :isDirectorOf ;
              rdf:type owl:FunctionalProperty ;
-             rdfs:domain :Director ;
-             rdfs:range :Movie .
+             rdfs:domain :Movie ;
+             rdfs:range :Director .
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#hasGenre
@@ -42,22 +42,22 @@
 :hasWriter rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            owl:inverseOf :isWriterOf ;
-           rdfs:domain :Writer ;
-           rdfs:range :Movie .
+           rdfs:domain :Movie ;
+           rdfs:range :Writer .
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isActorOf
 :isActorOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
-           rdfs:domain :Movie ;
-           rdfs:range :Actor .
+           rdfs:domain :Actor ;
+           rdfs:range :Movie .
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isDirectorOf
 :isDirectorOf rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
-              rdfs:domain :Movie ;
-              rdfs:range :Director .
+              rdfs:domain :Director ;
+              rdfs:range :Movie .
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isGenreOf
@@ -69,8 +69,8 @@
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isWriterOf
 :isWriterOf rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
-            rdfs:domain :Movie ;
-            rdfs:range :Writer .
+            rdfs:domain :Writer ;
+            rdfs:range :Movie .
 
 
 #################################################################
@@ -842,7 +842,6 @@
                :Age 101 ;
                :Gender "Male" ;
                :Name "Winston Groom" ;
-
                :Nationality "American" .
 
 
