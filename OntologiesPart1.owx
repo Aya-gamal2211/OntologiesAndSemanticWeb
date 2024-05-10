@@ -1,0 +1,850 @@
+@prefix : <http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2> .
+
+<http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#hasActor
+:hasActor rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :isActorOf ;
+          rdfs:domain :Actor ;
+          rdfs:range :Movie .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#hasDirector
+:hasDirector rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :isDirectorOf ;
+             rdfs:domain :Director ;
+             rdfs:range :Movie .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#hasGenre
+:hasGenre rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :isGenreOf ;
+          rdfs:domain :Movie ;
+          rdfs:range :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#hasWriter
+:hasWriter rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           owl:inverseOf :isWriterOf ;
+           rdfs:domain :Writer ;
+           rdfs:range :Movie .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isActorOf
+:isActorOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Movie ;
+           rdfs:range :Actor .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isDirectorOf
+:isDirectorOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :Movie ;
+              rdfs:range :Director .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isGenreOf
+:isGenreOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Genre ;
+           rdfs:range :Movie .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#isWriterOf
+:isWriterOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Movie ;
+            rdfs:range :Writer .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Age
+:Age rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf owl:topDataProperty ;
+     rdfs:domain :Person ;
+     rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Country
+:Country rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Movie ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Female
+:Female rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :Gender .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Gender
+:Gender rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Person ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Genre
+:Genre rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Language
+:Language rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :Movie ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Male
+:Male rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :Gender .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Name
+:Name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Person ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Nationality
+:Nationality rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Person ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Year
+:Year rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Movie ;
+      rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Actor
+:Actor rdf:type owl:Class ;
+       rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Adventure
+:Adventure rdf:type owl:Class ;
+           rdfs:subClassOf :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Animation
+:Animation rdf:type owl:Class ;
+           rdfs:subClassOf :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Comedy
+:Comedy rdf:type owl:Class ;
+        rdfs:subClassOf :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Crime
+:Crime rdf:type owl:Class ;
+       rdfs:subClassOf :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Director
+:Director rdf:type owl:Class ;
+          rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Drama
+:Drama rdf:type owl:Class ;
+       rdfs:subClassOf :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Genre
+:Genre rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Movie
+:Movie rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Thriller
+:Thriller rdf:type owl:Class ;
+          rdfs:subClassOf :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Writer
+:Writer rdf:type owl:Class ;
+        rdfs:subClassOf :Person .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#A_Separation
+:A_Separation rdf:type owl:NamedIndividual ,
+                       :Movie ;
+              :hasActor :Leila_Hatami ,
+                        :Peyman_Moaadi ,
+                        :Sareh_Bayat ,
+                        :Shahab_Hosseini ;
+              :hasDirector :Asghar_Farhadi ;
+              :hasGenre :Drama ;
+              :hasWriter :Asghar_Farhadi ;
+              :Country "Iran" ;
+              :Language "Persian" ;
+              :Name "A Separation" ;
+              :Year "2011-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#About_Time
+:About_Time rdf:type owl:NamedIndividual ,
+                     :Movie ;
+            :hasActor :Bill_Nighy ,
+                      :Domhnall_Gleeson ,
+                      :Rachel_McAdams ;
+            :hasDirector :Richard_Curtis ;
+            :hasGenre :Comedy ,
+                      :Drama ;
+            :hasWriter :Richard_Curtis ;
+            :Country "United Kingdom" ;
+            :Language "English" ;
+            :Name "About Time" ;
+            :Year "2013-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Action
+:Action rdf:type owl:NamedIndividual ,
+                 :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Adventure
+:Adventure rdf:type owl:NamedIndividual ,
+                    :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Amy_Ryan
+:Amy_Ryan rdf:type owl:NamedIndividual ,
+                   :Actor ;
+          :Age 53 ;
+          :Gender "Female" ;
+          :Name "Amy Ryan" ;
+          :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Amélie
+:Amélie rdf:type owl:NamedIndividual ,
+                 :Movie ;
+        :hasActor :Audrey_Tautou ,
+                  :Mathieu_Kassovitz ,
+                  :Rufus ;
+        :hasDirector :Jean_Pierre_Jeunet ;
+        :hasGenre :Comedy ,
+                  :Drama ;
+        :hasWriter :Guillaume_Laurant ;
+        :Country "France" ;
+        :Language "French" ;
+        :Name "Amélie" ;
+        :Year "2001-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Animation
+:Animation rdf:type owl:NamedIndividual ,
+                    :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Antonella_Attili
+:Antonella_Attili rdf:type owl:NamedIndividual ,
+                           :Actor ;
+                  :Age 74 ;
+                  :Gender "Female" ;
+                  :Name "Antonella Attili" ;
+                  :Nationality "Italian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Asghar_Farhadi
+:Asghar_Farhadi rdf:type owl:NamedIndividual ,
+                         :Director ,
+                         :Writer ;
+                :Age 50 ;
+                :Gender "Male" ;
+                :Name "Asghar Farhadi" ;
+                :Nationality "Iranian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Audrey_Tautou
+:Audrey_Tautou rdf:type owl:NamedIndividual ,
+                        :Actor ;
+               :Age 45 ;
+               :Gender "Female" ;
+               :Name "Audrey Tautou" ;
+               :Nationality "French" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Ben_Kingsley
+:Ben_Kingsley rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :Age 78 ;
+              :Gender "Male" ;
+              :Name "Ben Kingsley" ;
+              :Nationality "British" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Bill_Nighy
+:Bill_Nighy rdf:type owl:NamedIndividual ,
+                     :Actor ;
+            :Age 72 ;
+            :Gender "Male" ;
+            :Name "Bill Nighy" ;
+            :Nationality "British" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Central_Intelligence
+:Central_Intelligence rdf:type owl:NamedIndividual ,
+                               :Movie ;
+                      :hasActor :Amy_Ryan ,
+                                :Dwayne_Johnson ,
+                                :Kevin_Hart ,
+                                :Rawson_Marshall_Thurber ;
+                      :hasDirector :Rawson_Marshall_Thurber ;
+                      :hasGenre :Action ,
+                                :Comedy ,
+                                :Thriller ;
+                      :hasWriter :David_Stassen ,
+                                 :Ike_Barinholtz ;
+                      :Country "United States" ;
+                      :Language "English" ;
+                      :Name "Central Intelligence" ;
+                      :Year "2016-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Cinema_Paradiso
+:Cinema_Paradiso rdf:type owl:NamedIndividual ,
+                          :Movie ;
+                 :hasActor :Antonella_Attili ,
+                           :Enzo_Cannavale ,
+                           :Philippe_Noiret ;
+                 :hasDirector :Giuseppe_Tornatore ;
+                 :hasGenre :Drama ;
+                 :hasWriter :Giuseppe_Tornatore ;
+                 :Country "Italy" ;
+                 :Language "Italian" ;
+                 :Name "Cinema Paradiso" ;
+                 :Year "1988-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Comedy
+:Comedy rdf:type owl:NamedIndividual ,
+                 :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Crime
+:Crime rdf:type owl:NamedIndividual ,
+                :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#David_Carradine
+:David_Carradine rdf:type owl:NamedIndividual ,
+                          :Actor ;
+                 :Age 72 ;
+                 :Gender "Male" ;
+                 :Name "David Carradine" ;
+                 :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#David_Stassen
+:David_Stassen rdf:type owl:NamedIndividual ,
+                        :Writer ;
+               :Age 41 ;
+               :Gender "Male" ;
+               :Name "David Stassen" ;
+               :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Domhnall_Gleeson
+:Domhnall_Gleeson rdf:type owl:NamedIndividual ,
+                           :Actor ;
+                  :Age 39 ;
+                  :Gender "Male" ;
+                  :Name "Domhnall Gleeson" ;
+                  :Nationality "Irish" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Drama
+:Drama rdf:type owl:NamedIndividual ,
+                :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Dwayne_Johnson
+:Dwayne_Johnson rdf:type owl:NamedIndividual ,
+                         :Actor ;
+                :Age 49 ;
+                :Gender "Male" ;
+                :Name "Dwayne Johnson" ;
+                :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Enzo_Cannavale
+:Enzo_Cannavale rdf:type owl:NamedIndividual ,
+                         :Actor ;
+                :Age 96 ;
+                :Gender "Male" ;
+                :Name "Enzo Cannavale" ;
+                :Nationality "Italian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Eric_Roth
+:Eric_Roth rdf:type owl:NamedIndividual ,
+                    :Writer ;
+           :Age 76 ;
+           :Gender "Male" ;
+           :Name "Eric Roth" ;
+           :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Family
+:Family rdf:type owl:NamedIndividual ,
+                 :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Forrest_Gump
+:Forrest_Gump rdf:type owl:NamedIndividual ,
+                       :Movie ;
+              :hasActor :Gary_Sinise ,
+                        :Robin_Wright ,
+                        :Tom_Hanks ;
+              :hasDirector :Robert_Zemeckis ;
+              :hasGenre :Comedy ,
+                        :Drama ;
+              :hasWriter :Eric_Roth ,
+                         :Winston_Groom ;
+              :Country "USA" ;
+              :Language "English" ;
+              :Name "Forrest Gump" ;
+              :Year "1994-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Gary_Sinise
+:Gary_Sinise rdf:type owl:NamedIndividual ,
+                      :Actor ;
+             :Age 66 ;
+             :Gender "Male" ;
+             :Name "Gary Sinise" ;
+             :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Giuseppe_Tornatore
+:Giuseppe_Tornatore rdf:type owl:NamedIndividual ,
+                             :Director ,
+                             :Writer ;
+                    :Age 65 ;
+                    :Gender "Male" ;
+                    :Name "Giuseppe Tornatore" ;
+                    :Nationality "Italian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Guillaume_Laurant
+:Guillaume_Laurant rdf:type owl:NamedIndividual ,
+                            :Writer ;
+                   :Age 61 ;
+                   :Gender "Male" ;
+                   :Name "Guillaume Laurant" ;
+                   :Nationality "French" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Hayao_Miyazaki
+:Hayao_Miyazaki rdf:type owl:NamedIndividual ,
+                         :Director ,
+                         :Writer ;
+                :Age 81 ;
+                :Gender "Male" ;
+                :Name "Hayao Miyazaki" ;
+                :Nationality "Japanese" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Ike_Barinholtz
+:Ike_Barinholtz rdf:type owl:NamedIndividual ,
+                         :Writer ;
+                :Age 44 ;
+                :Gender "Male" ;
+                :Name "Ike Barinholtz" ;
+                :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Jean_Pierre_Jeunet
+:Jean_Pierre_Jeunet rdf:type owl:NamedIndividual ,
+                             :Director ;
+                    :Age 68 ;
+                    :Gender "Male" ;
+                    :Name "Jean-Pierre Jeunet" ;
+                    :Nationality "French" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#John_Travolta
+:John_Travolta rdf:type owl:NamedIndividual ,
+                        :Actor ;
+               :Age 68 ;
+               :Gender "Male" ;
+               :Name "John Travolta" ;
+               :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Kevin_Hart
+:Kevin_Hart rdf:type owl:NamedIndividual ,
+                     :Actor ;
+            :Age 42 ;
+            :Gender "Male" ;
+            :Name "Kevin Hart" ;
+            :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Kill_Bill_Volume_1
+:Kill_Bill_Volume_1 rdf:type owl:NamedIndividual ,
+                             :Movie ;
+                    :hasActor :David_Carradine ,
+                              :Lucy_Liu ,
+                              :Uma_Thurman ,
+                              :Vivica_A_Fox ;
+                    :hasDirector :Quentin_Tarantino ;
+                    :hasGenre :Action ;
+                    :hasWriter :Quentin_Tarantino ;
+                    :Country "United States" ;
+                    :Language "English" ;
+                    :Name "Kill Bill (Volume 1)" ;
+                    :Year "2003-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Laeta_Kalogridis
+:Laeta_Kalogridis rdf:type owl:NamedIndividual ,
+                           :Writer ;
+                  :Age 58 ;
+                  :Gender "Female" ;
+                  :Name "Laeta Kalogridis" ;
+                  :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Leila_Hatami
+:Leila_Hatami rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :Age 49 ;
+              :Gender "Female" ;
+              :Name "Leila Hatami" ;
+              :Nationality "Iranian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Leonardo_DiCaprio
+:Leonardo_DiCaprio rdf:type owl:NamedIndividual ,
+                            :Actor ;
+                   :Age 47 ;
+                   :Gender "Male" ;
+                   :Name "Leonardo DiCaprio" ;
+                   :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Lucy_Liu
+:Lucy_Liu rdf:type owl:NamedIndividual ,
+                   :Actor ;
+          :Age 53 ;
+          :Gender "Female" ;
+          :Name "Lucy Liu" ;
+          :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Mari_Natsuki
+:Mari_Natsuki rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :Age 74 ;
+              :Gender "Female" ;
+              :Name "Mari Natsuki" ;
+              :Nationality "Japanese" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Mark_Ruffalo
+:Mark_Ruffalo rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :Age 54 ;
+              :Gender "Male" ;
+              :Name "Mark Ruffalo" ;
+              :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Martin_Scorsese
+:Martin_Scorsese rdf:type owl:NamedIndividual ,
+                          :Director ;
+                 :Age 79 ;
+                 :Gender "Male" ;
+                 :Name "Martin Scorsese" ;
+                 :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Mathieu_Kassovitz
+:Mathieu_Kassovitz rdf:type owl:NamedIndividual ,
+                            :Actor ;
+                   :Age 54 ;
+                   :Gender "Male" ;
+                   :Name "Mathieu Kassovitz" ;
+                   :Nationality "French" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Miyu_Irino
+:Miyu_Irino rdf:type owl:NamedIndividual ,
+                     :Actor ;
+            :Age 34 ;
+            :Gender "Male" ;
+            :Name "Miyu Irino" ;
+            :Nationality "Japanese" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Mystery
+:Mystery rdf:type owl:NamedIndividual ,
+                  :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Peyman_Moaadi
+:Peyman_Moaadi rdf:type owl:NamedIndividual ,
+                        :Actor ;
+               :Age 50 ;
+               :Gender "Male" ;
+               :Name "Peyman Moaadi" ;
+               :Nationality "Iranian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Philippe_Noiret
+:Philippe_Noiret rdf:type owl:NamedIndividual ,
+                          :Actor ;
+                 :Age 94 ;
+                 :Gender "Male" ;
+                 :Name "Philippe Noiret" ;
+                 :Nationality "French" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Pulp_Fiction
+:Pulp_Fiction rdf:type owl:NamedIndividual ,
+                       :Movie ;
+              :hasActor :John_Travolta ,
+                        :Samuel_L_Jackson ;
+              :hasDirector :Quentin_Tarantino ;
+              :hasGenre :Crime ,
+                        :Thriller ;
+              :hasWriter :Quentin_Tarantino ;
+              :Country "United States" ;
+              :Language "English" ;
+              :Name "Pulp Fiction" ;
+              :Year "1994-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Quentin_Tarantino
+:Quentin_Tarantino rdf:type owl:NamedIndividual ,
+                            :Director ,
+                            :Writer ;
+                   :Age 59 ;
+                   :Gender "Male" ;
+                   :Name "Quentin Tarantino" ;
+                   :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Rachel_McAdams
+:Rachel_McAdams rdf:type owl:NamedIndividual ,
+                         :Actor ;
+                :Age 44 ;
+                :Gender "Female" ;
+                :Name "Rachel McAdams" ;
+                :Nationality "Canadian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Rawson_Marshall_Thurber
+:Rawson_Marshall_Thurber rdf:type owl:NamedIndividual ,
+                                  :Actor ,
+                                  :Director ,
+                                  :Writer ;
+                         :Age 47 ;
+                         :Gender "Male" ;
+                         :Name "Rawson Marshall Thurber" ;
+                         :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Richard_Curtis
+:Richard_Curtis rdf:type owl:NamedIndividual ,
+                         :Director ,
+                         :Writer ;
+                :Age 65 ;
+                :Gender "Male" ;
+                :Name "Richard Curtis" ;
+                :Nationality "British" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Robert_Zemeckis
+:Robert_Zemeckis rdf:type owl:NamedIndividual ,
+                          :Director ;
+                 :Age 70 ;
+                 :Gender "Male" ;
+                 :Name "Robert Zemeckis" ;
+                 :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Robin_Wright
+:Robin_Wright rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :Age 55 ;
+              :Gender "Female" ;
+              :Name "Robin Wright" ;
+              :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Romantic
+:Romantic rdf:type owl:NamedIndividual ,
+                   :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Rufus
+:Rufus rdf:type owl:NamedIndividual ,
+                :Actor ;
+       :Age 79 ;
+       :Gender "Male" ;
+       :Name "Rufus" ;
+       :Nationality "French" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Rumi_Hiiragi
+:Rumi_Hiiragi rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :Age 51 ;
+              :Gender "Female" ;
+              :Name "Rumi Hiiragi" ;
+              :Nationality "Japanese" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Samuel_L_Jackson
+:Samuel_L_Jackson rdf:type owl:NamedIndividual ,
+                           :Actor ;
+                  :Age 73 ;
+                  :Gender "Male" ;
+                  :Name "Samuel L. Jackson" ;
+                  :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Sareh_Bayat
+:Sareh_Bayat rdf:type owl:NamedIndividual ,
+                      :Actor ;
+             :Age 52 ;
+             :Gender "Female" ;
+             :Name "Sareh Bayat" ;
+             :Nationality "Iranian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Shahab_Hosseini
+:Shahab_Hosseini rdf:type owl:NamedIndividual ,
+                          :Actor ;
+                 :Age 48 ;
+                 :Gender "Male" ;
+                 :Name "Shahab Hosseini" ;
+                 :Nationality "Iranian" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Shutter_Island
+:Shutter_Island rdf:type owl:NamedIndividual ,
+                         :Movie ;
+                :hasActor :Ben_Kingsley ,
+                          :Leonardo_DiCaprio ,
+                          :Mark_Ruffalo ;
+                :hasDirector :Martin_Scorsese ;
+                :hasGenre :Mystery ,
+                          :Thriller ;
+                :hasWriter :Laeta_Kalogridis ;
+                :Country "United States" ;
+                :Language "English" ;
+                :Name "Shutter Island" ;
+                :Year "2010-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Spirited_Away
+:Spirited_Away rdf:type owl:NamedIndividual ,
+                        :Movie ;
+               :hasActor :Mari_Natsuki ,
+                         :Miyu_Irino ,
+                         :Rumi_Hiiragi ;
+               :hasDirector :Hayao_Miyazaki ;
+               :hasGenre :Adventure ,
+                         :Animation ,
+                         :Family ;
+               :hasWriter :Hayao_Miyazaki ;
+               :Country "Japan" ;
+               :Language "Japanese" ;
+               :Name "Spirited Away" ;
+               :Year "2001-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Thriller
+:Thriller rdf:type owl:NamedIndividual ,
+                   :Genre .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Tom_Hanks
+:Tom_Hanks rdf:type owl:NamedIndividual ,
+                    :Actor ;
+           :Age 65 ;
+           :Gender "Male" ;
+           :Name "Tom Hanks" ;
+           :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Uma_Thurman
+:Uma_Thurman rdf:type owl:NamedIndividual ,
+                      :Actor ;
+             :Age 51 ;
+             :Gender "Female" ;
+             :Name "Uma Thurman" ;
+             :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Vivica_A_Fox
+:Vivica_A_Fox rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :Age 57 ;
+              :Gender "Female" ;
+              :Name "Vivica A. Fox" ;
+              :Nationality "American" .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Winston_Groom
+:Winston_Groom rdf:type owl:NamedIndividual ,
+                        :Writer ;
+               :Age 101 ;
+               :Gender "Male" ;
+               :Name "Winston Groom" ;
+               :Nationality "American" .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

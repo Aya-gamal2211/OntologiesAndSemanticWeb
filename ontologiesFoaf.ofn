@@ -1,0 +1,846 @@
+Prefix(:=<http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2>
+
+Declaration(Class(:Action))
+Declaration(Class(:Actor))
+Declaration(Class(:Adventure))
+Declaration(Class(:Animation))
+Declaration(Class(:Comedy))
+Declaration(Class(:Crime))
+Declaration(Class(:Director))
+Declaration(Class(:Drama))
+Declaration(Class(:Genre))
+Declaration(Class(:Movie))
+Declaration(Class(:Person))
+Declaration(Class(:Thriller))
+Declaration(Class(:Writer))
+Declaration(ObjectProperty(:hasActor))
+Declaration(ObjectProperty(:hasDirector))
+Declaration(ObjectProperty(:hasGenre))
+Declaration(ObjectProperty(:hasWriter))
+Declaration(ObjectProperty(:isActorOf))
+Declaration(ObjectProperty(:isDirectorOf))
+Declaration(ObjectProperty(:isGenreOf))
+Declaration(ObjectProperty(:isWriterOf))
+Declaration(DataProperty(:Age))
+Declaration(DataProperty(:Country))
+Declaration(DataProperty(:Female))
+Declaration(DataProperty(:Gender))
+Declaration(DataProperty(:Genre))
+Declaration(DataProperty(:Language))
+Declaration(DataProperty(:Male))
+Declaration(DataProperty(:Name))
+Declaration(DataProperty(:Nationality))
+Declaration(DataProperty(:Year))
+Declaration(NamedIndividual(:A_Separation))
+Declaration(NamedIndividual(:About_Time))
+Declaration(NamedIndividual(:Action))
+Declaration(NamedIndividual(:Adventure))
+Declaration(NamedIndividual(:Amy_Ryan))
+Declaration(NamedIndividual(:Amélie))
+Declaration(NamedIndividual(:Animation))
+Declaration(NamedIndividual(:Antonella_Attili))
+Declaration(NamedIndividual(:Asghar_Farhadi))
+Declaration(NamedIndividual(:Audrey_Tautou))
+Declaration(NamedIndividual(:Ben_Kingsley))
+Declaration(NamedIndividual(:Bill_Nighy))
+Declaration(NamedIndividual(:Central_Intelligence))
+Declaration(NamedIndividual(:Cinema_Paradiso))
+Declaration(NamedIndividual(:Comedy))
+Declaration(NamedIndividual(:Crime))
+Declaration(NamedIndividual(:David_Carradine))
+Declaration(NamedIndividual(:David_Stassen))
+Declaration(NamedIndividual(:Domhnall_Gleeson))
+Declaration(NamedIndividual(:Drama))
+Declaration(NamedIndividual(:Dwayne_Johnson))
+Declaration(NamedIndividual(:Enzo_Cannavale))
+Declaration(NamedIndividual(:Eric_Roth))
+Declaration(NamedIndividual(:Family))
+Declaration(NamedIndividual(:Forrest_Gump))
+Declaration(NamedIndividual(:Gary_Sinise))
+Declaration(NamedIndividual(:Giuseppe_Tornatore))
+Declaration(NamedIndividual(:Guillaume_Laurant))
+Declaration(NamedIndividual(:Hayao_Miyazaki))
+Declaration(NamedIndividual(:Ike_Barinholtz))
+Declaration(NamedIndividual(:Jean_Pierre_Jeunet))
+Declaration(NamedIndividual(:John_Travolta))
+Declaration(NamedIndividual(:Kevin_Hart))
+Declaration(NamedIndividual(:Kill_Bill_Volume_1))
+Declaration(NamedIndividual(:Laeta_Kalogridis))
+Declaration(NamedIndividual(:Leila_Hatami))
+Declaration(NamedIndividual(:Leonardo_DiCaprio))
+Declaration(NamedIndividual(:Lucy_Liu))
+Declaration(NamedIndividual(:Mari_Natsuki))
+Declaration(NamedIndividual(:Mark_Ruffalo))
+Declaration(NamedIndividual(:Martin_Scorsese))
+Declaration(NamedIndividual(:Mathieu_Kassovitz))
+Declaration(NamedIndividual(:Miyu_Irino))
+Declaration(NamedIndividual(:Mystery))
+Declaration(NamedIndividual(:Peyman_Moaadi))
+Declaration(NamedIndividual(:Philippe_Noiret))
+Declaration(NamedIndividual(:Pulp_Fiction))
+Declaration(NamedIndividual(:Quentin_Tarantino))
+Declaration(NamedIndividual(:Rachel_McAdams))
+Declaration(NamedIndividual(:Rawson_Marshall_Thurber))
+Declaration(NamedIndividual(:Richard_Curtis))
+Declaration(NamedIndividual(:Robert_Zemeckis))
+Declaration(NamedIndividual(:Robin_Wright))
+Declaration(NamedIndividual(:Romantic))
+Declaration(NamedIndividual(:Rufus))
+Declaration(NamedIndividual(:Rumi_Hiiragi))
+Declaration(NamedIndividual(:Samuel_L_Jackson))
+Declaration(NamedIndividual(:Sareh_Bayat))
+Declaration(NamedIndividual(:Shahab_Hosseini))
+Declaration(NamedIndividual(:Shutter_Island))
+Declaration(NamedIndividual(:Spirited_Away))
+Declaration(NamedIndividual(:Thriller))
+Declaration(NamedIndividual(:Tom_Hanks))
+Declaration(NamedIndividual(:Uma_Thurman))
+Declaration(NamedIndividual(:Vivica_A_Fox))
+Declaration(NamedIndividual(:Winston_Groom))
+############################
+#   Object Properties
+############################
+
+# Object Property: :hasActor (:hasActor)
+
+SubObjectPropertyOf(:hasActor owl:topObjectProperty)
+InverseObjectProperties(:hasActor :isActorOf)
+ObjectPropertyDomain(:hasActor :Actor)
+ObjectPropertyRange(:hasActor :Movie)
+
+# Object Property: :hasDirector (:hasDirector)
+
+SubObjectPropertyOf(:hasDirector owl:topObjectProperty)
+InverseObjectProperties(:hasDirector :isDirectorOf)
+ObjectPropertyDomain(:hasDirector :Director)
+ObjectPropertyRange(:hasDirector :Movie)
+
+# Object Property: :hasGenre (:hasGenre)
+
+SubObjectPropertyOf(:hasGenre owl:topObjectProperty)
+InverseObjectProperties(:hasGenre :isGenreOf)
+ObjectPropertyDomain(:hasGenre :Movie)
+ObjectPropertyRange(:hasGenre :Genre)
+
+# Object Property: :hasWriter (:hasWriter)
+
+SubObjectPropertyOf(:hasWriter owl:topObjectProperty)
+InverseObjectProperties(:hasWriter :isWriterOf)
+ObjectPropertyDomain(:hasWriter :Writer)
+ObjectPropertyRange(:hasWriter :Movie)
+
+# Object Property: :isActorOf (:isActorOf)
+
+SubObjectPropertyOf(:isActorOf owl:topObjectProperty)
+FunctionalObjectProperty(:isActorOf)
+ObjectPropertyDomain(:isActorOf :Movie)
+ObjectPropertyRange(:isActorOf :Actor)
+
+# Object Property: :isDirectorOf (:isDirectorOf)
+
+SubObjectPropertyOf(:isDirectorOf owl:topObjectProperty)
+FunctionalObjectProperty(:isDirectorOf)
+ObjectPropertyDomain(:isDirectorOf :Movie)
+ObjectPropertyRange(:isDirectorOf :Director)
+
+# Object Property: :isGenreOf (:isGenreOf)
+
+SubObjectPropertyOf(:isGenreOf owl:topObjectProperty)
+ObjectPropertyDomain(:isGenreOf :Genre)
+ObjectPropertyRange(:isGenreOf :Movie)
+
+# Object Property: :isWriterOf (:isWriterOf)
+
+SubObjectPropertyOf(:isWriterOf owl:topObjectProperty)
+FunctionalObjectProperty(:isWriterOf)
+ObjectPropertyDomain(:isWriterOf :Movie)
+ObjectPropertyRange(:isWriterOf :Writer)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :Age (:Age)
+
+SubDataPropertyOf(:Age owl:topDataProperty)
+DataPropertyDomain(:Age :Person)
+DataPropertyRange(:Age xsd:int)
+
+# Data Property: :Country (:Country)
+
+SubDataPropertyOf(:Country owl:topDataProperty)
+DataPropertyDomain(:Country :Movie)
+DataPropertyRange(:Country xsd:string)
+
+# Data Property: :Female (:Female)
+
+SubDataPropertyOf(:Female :Gender)
+
+# Data Property: :Gender (:Gender)
+
+SubDataPropertyOf(:Gender owl:topDataProperty)
+DataPropertyDomain(:Gender :Person)
+DataPropertyRange(:Gender xsd:string)
+
+# Data Property: :Genre (:Genre)
+
+SubDataPropertyOf(:Genre owl:topDataProperty)
+
+# Data Property: :Language (:Language)
+
+SubDataPropertyOf(:Language owl:topDataProperty)
+DataPropertyDomain(:Language :Movie)
+DataPropertyRange(:Language xsd:string)
+
+# Data Property: :Male (:Male)
+
+SubDataPropertyOf(:Male :Gender)
+
+# Data Property: :Name (:Name)
+
+SubDataPropertyOf(:Name owl:topDataProperty)
+DataPropertyDomain(:Name :Person)
+DataPropertyRange(:Name xsd:string)
+
+# Data Property: :Nationality (:Nationality)
+
+SubDataPropertyOf(:Nationality owl:topDataProperty)
+DataPropertyDomain(:Nationality :Person)
+DataPropertyRange(:Nationality xsd:string)
+
+# Data Property: :Year (:Year)
+
+SubDataPropertyOf(:Year owl:topDataProperty)
+DataPropertyDomain(:Year :Movie)
+DataPropertyRange(:Year xsd:dateTime)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :Action (:Action)
+
+SubClassOf(:Action :Genre)
+
+# Class: :Actor (:Actor)
+
+SubClassOf(:Actor :Person)
+
+# Class: :Adventure (:Adventure)
+
+SubClassOf(:Adventure :Genre)
+
+# Class: :Animation (:Animation)
+
+SubClassOf(:Animation :Genre)
+
+# Class: :Comedy (:Comedy)
+
+SubClassOf(:Comedy :Genre)
+
+# Class: :Crime (:Crime)
+
+SubClassOf(:Crime :Genre)
+
+# Class: :Director (:Director)
+
+SubClassOf(:Director :Person)
+
+# Class: :Drama (:Drama)
+
+SubClassOf(:Drama :Genre)
+
+# Class: :Thriller (:Thriller)
+
+SubClassOf(:Thriller :Genre)
+
+# Class: :Writer (:Writer)
+
+SubClassOf(:Writer :Person)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :A_Separation (:A_Separation)
+
+ClassAssertion(:Movie :A_Separation)
+ObjectPropertyAssertion(:hasActor :A_Separation :Leila_Hatami)
+ObjectPropertyAssertion(:hasActor :A_Separation :Peyman_Moaadi)
+ObjectPropertyAssertion(:hasActor :A_Separation :Sareh_Bayat)
+ObjectPropertyAssertion(:hasActor :A_Separation :Shahab_Hosseini)
+ObjectPropertyAssertion(:hasDirector :A_Separation :Asghar_Farhadi)
+ObjectPropertyAssertion(:hasGenre :A_Separation :Drama)
+ObjectPropertyAssertion(:hasWriter :A_Separation :Asghar_Farhadi)
+DataPropertyAssertion(:Country :A_Separation "Iran")
+DataPropertyAssertion(:Language :A_Separation "Persian")
+DataPropertyAssertion(:Name :A_Separation "A Separation")
+DataPropertyAssertion(:Year :A_Separation "2011-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :About_Time (:About_Time)
+
+ClassAssertion(:Movie :About_Time)
+ObjectPropertyAssertion(:hasActor :About_Time :Bill_Nighy)
+ObjectPropertyAssertion(:hasActor :About_Time :Domhnall_Gleeson)
+ObjectPropertyAssertion(:hasActor :About_Time :Rachel_McAdams)
+ObjectPropertyAssertion(:hasDirector :About_Time :Richard_Curtis)
+ObjectPropertyAssertion(:hasGenre :About_Time :Comedy)
+ObjectPropertyAssertion(:hasGenre :About_Time :Drama)
+ObjectPropertyAssertion(:hasWriter :About_Time :Richard_Curtis)
+DataPropertyAssertion(:Country :About_Time "United Kingdom")
+DataPropertyAssertion(:Language :About_Time "English")
+DataPropertyAssertion(:Name :About_Time "About Time")
+DataPropertyAssertion(:Year :About_Time "2013-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Action (:Action)
+
+ClassAssertion(:Genre :Action)
+
+# Individual: :Adventure (:Adventure)
+
+ClassAssertion(:Genre :Adventure)
+
+# Individual: :Amy_Ryan (:Amy_Ryan)
+
+ClassAssertion(:Actor :Amy_Ryan)
+DataPropertyAssertion(:Age :Amy_Ryan "53"^^xsd:integer)
+DataPropertyAssertion(:Gender :Amy_Ryan "Female")
+DataPropertyAssertion(:Name :Amy_Ryan "Amy Ryan")
+DataPropertyAssertion(:Nationality :Amy_Ryan "American")
+
+# Individual: :Amélie (:Amélie)
+
+ClassAssertion(:Movie :Amélie)
+ObjectPropertyAssertion(:hasActor :Amélie :Audrey_Tautou)
+ObjectPropertyAssertion(:hasActor :Amélie :Mathieu_Kassovitz)
+ObjectPropertyAssertion(:hasActor :Amélie :Rufus)
+ObjectPropertyAssertion(:hasDirector :Amélie :Jean_Pierre_Jeunet)
+ObjectPropertyAssertion(:hasGenre :Amélie :Comedy)
+ObjectPropertyAssertion(:hasGenre :Amélie :Drama)
+ObjectPropertyAssertion(:hasWriter :Amélie :Guillaume_Laurant)
+DataPropertyAssertion(:Country :Amélie "France")
+DataPropertyAssertion(:Language :Amélie "French")
+DataPropertyAssertion(:Name :Amélie "Amélie")
+DataPropertyAssertion(:Year :Amélie "2001-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Animation (:Animation)
+
+ClassAssertion(:Genre :Animation)
+
+# Individual: :Antonella_Attili (:Antonella_Attili)
+
+ClassAssertion(:Actor :Antonella_Attili)
+DataPropertyAssertion(:Age :Antonella_Attili "74"^^xsd:integer)
+DataPropertyAssertion(:Gender :Antonella_Attili "Female")
+DataPropertyAssertion(:Name :Antonella_Attili "Antonella Attili")
+DataPropertyAssertion(:Nationality :Antonella_Attili "Italian")
+
+# Individual: :Asghar_Farhadi (:Asghar_Farhadi)
+
+ClassAssertion(:Director :Asghar_Farhadi)
+ClassAssertion(:Writer :Asghar_Farhadi)
+DataPropertyAssertion(:Age :Asghar_Farhadi "50"^^xsd:integer)
+DataPropertyAssertion(:Gender :Asghar_Farhadi "Male")
+DataPropertyAssertion(:Name :Asghar_Farhadi "Asghar Farhadi")
+DataPropertyAssertion(:Nationality :Asghar_Farhadi "Iranian")
+
+# Individual: :Audrey_Tautou (:Audrey_Tautou)
+
+ClassAssertion(:Actor :Audrey_Tautou)
+DataPropertyAssertion(:Age :Audrey_Tautou "45"^^xsd:integer)
+DataPropertyAssertion(:Gender :Audrey_Tautou "Female")
+DataPropertyAssertion(:Name :Audrey_Tautou "Audrey Tautou")
+DataPropertyAssertion(:Nationality :Audrey_Tautou "French")
+
+# Individual: :Ben_Kingsley (:Ben_Kingsley)
+
+ClassAssertion(:Actor :Ben_Kingsley)
+DataPropertyAssertion(:Age :Ben_Kingsley "78"^^xsd:integer)
+DataPropertyAssertion(:Gender :Ben_Kingsley "Male")
+DataPropertyAssertion(:Name :Ben_Kingsley "Ben Kingsley")
+DataPropertyAssertion(:Nationality :Ben_Kingsley "British")
+
+# Individual: :Bill_Nighy (:Bill_Nighy)
+
+ClassAssertion(:Actor :Bill_Nighy)
+DataPropertyAssertion(:Age :Bill_Nighy "72"^^xsd:integer)
+DataPropertyAssertion(:Gender :Bill_Nighy "Male")
+DataPropertyAssertion(:Name :Bill_Nighy "Bill Nighy")
+DataPropertyAssertion(:Nationality :Bill_Nighy "British")
+
+# Individual: :Central_Intelligence (:Central_Intelligence)
+
+ClassAssertion(:Movie :Central_Intelligence)
+ObjectPropertyAssertion(:hasActor :Central_Intelligence :Amy_Ryan)
+ObjectPropertyAssertion(:hasActor :Central_Intelligence :Dwayne_Johnson)
+ObjectPropertyAssertion(:hasActor :Central_Intelligence :Kevin_Hart)
+ObjectPropertyAssertion(:hasActor :Central_Intelligence :Rawson_Marshall_Thurber)
+ObjectPropertyAssertion(:hasDirector :Central_Intelligence :Rawson_Marshall_Thurber)
+ObjectPropertyAssertion(:hasGenre :Central_Intelligence :Action)
+ObjectPropertyAssertion(:hasGenre :Central_Intelligence :Comedy)
+ObjectPropertyAssertion(:hasGenre :Central_Intelligence :Thriller)
+ObjectPropertyAssertion(:hasWriter :Central_Intelligence :David_Stassen)
+ObjectPropertyAssertion(:hasWriter :Central_Intelligence :Ike_Barinholtz)
+DataPropertyAssertion(:Country :Central_Intelligence "United States")
+DataPropertyAssertion(:Language :Central_Intelligence "English")
+DataPropertyAssertion(:Name :Central_Intelligence "Central Intelligence")
+DataPropertyAssertion(:Year :Central_Intelligence "2016-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Cinema_Paradiso (:Cinema_Paradiso)
+
+ClassAssertion(:Movie :Cinema_Paradiso)
+ObjectPropertyAssertion(:hasActor :Cinema_Paradiso :Antonella_Attili)
+ObjectPropertyAssertion(:hasActor :Cinema_Paradiso :Enzo_Cannavale)
+ObjectPropertyAssertion(:hasActor :Cinema_Paradiso :Philippe_Noiret)
+ObjectPropertyAssertion(:hasDirector :Cinema_Paradiso :Giuseppe_Tornatore)
+ObjectPropertyAssertion(:hasGenre :Cinema_Paradiso :Drama)
+ObjectPropertyAssertion(:hasWriter :Cinema_Paradiso :Giuseppe_Tornatore)
+DataPropertyAssertion(:Country :Cinema_Paradiso "Italy")
+DataPropertyAssertion(:Language :Cinema_Paradiso "Italian")
+DataPropertyAssertion(:Name :Cinema_Paradiso "Cinema Paradiso")
+DataPropertyAssertion(:Year :Cinema_Paradiso "1988-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Comedy (:Comedy)
+
+ClassAssertion(:Genre :Comedy)
+
+# Individual: :Crime (:Crime)
+
+ClassAssertion(:Genre :Crime)
+
+# Individual: :David_Carradine (:David_Carradine)
+
+ClassAssertion(:Actor :David_Carradine)
+DataPropertyAssertion(:Age :David_Carradine "72"^^xsd:integer)
+DataPropertyAssertion(:Gender :David_Carradine "Male")
+DataPropertyAssertion(:Name :David_Carradine "David Carradine")
+DataPropertyAssertion(:Nationality :David_Carradine "American")
+
+# Individual: :David_Stassen (:David_Stassen)
+
+ClassAssertion(:Writer :David_Stassen)
+DataPropertyAssertion(:Age :David_Stassen "41"^^xsd:integer)
+DataPropertyAssertion(:Gender :David_Stassen "Male")
+DataPropertyAssertion(:Name :David_Stassen "David Stassen")
+DataPropertyAssertion(:Nationality :David_Stassen "American")
+
+# Individual: :Domhnall_Gleeson (:Domhnall_Gleeson)
+
+ClassAssertion(:Actor :Domhnall_Gleeson)
+DataPropertyAssertion(:Age :Domhnall_Gleeson "39"^^xsd:integer)
+DataPropertyAssertion(:Gender :Domhnall_Gleeson "Male")
+DataPropertyAssertion(:Name :Domhnall_Gleeson "Domhnall Gleeson")
+DataPropertyAssertion(:Nationality :Domhnall_Gleeson "Irish")
+
+# Individual: :Drama (:Drama)
+
+ClassAssertion(:Genre :Drama)
+
+# Individual: :Dwayne_Johnson (:Dwayne_Johnson)
+
+ClassAssertion(:Actor :Dwayne_Johnson)
+DataPropertyAssertion(:Age :Dwayne_Johnson "49"^^xsd:integer)
+DataPropertyAssertion(:Gender :Dwayne_Johnson "Male")
+DataPropertyAssertion(:Name :Dwayne_Johnson "Dwayne Johnson")
+DataPropertyAssertion(:Nationality :Dwayne_Johnson "American")
+
+# Individual: :Enzo_Cannavale (:Enzo_Cannavale)
+
+ClassAssertion(:Actor :Enzo_Cannavale)
+DataPropertyAssertion(:Age :Enzo_Cannavale "96"^^xsd:integer)
+DataPropertyAssertion(:Gender :Enzo_Cannavale "Male")
+DataPropertyAssertion(:Name :Enzo_Cannavale "Enzo Cannavale")
+DataPropertyAssertion(:Nationality :Enzo_Cannavale "Italian")
+
+# Individual: :Eric_Roth (:Eric_Roth)
+
+ClassAssertion(:Writer :Eric_Roth)
+DataPropertyAssertion(:Age :Eric_Roth "76"^^xsd:integer)
+DataPropertyAssertion(:Gender :Eric_Roth "Male")
+DataPropertyAssertion(:Name :Eric_Roth "Eric Roth")
+DataPropertyAssertion(:Nationality :Eric_Roth "American")
+
+# Individual: :Family (:Family)
+
+ClassAssertion(:Genre :Family)
+
+# Individual: :Forrest_Gump (:Forrest_Gump)
+
+ClassAssertion(:Movie :Forrest_Gump)
+ObjectPropertyAssertion(:hasActor :Forrest_Gump :Gary_Sinise)
+ObjectPropertyAssertion(:hasActor :Forrest_Gump :Robin_Wright)
+ObjectPropertyAssertion(:hasActor :Forrest_Gump :Tom_Hanks)
+ObjectPropertyAssertion(:hasDirector :Forrest_Gump :Robert_Zemeckis)
+ObjectPropertyAssertion(:hasGenre :Forrest_Gump :Comedy)
+ObjectPropertyAssertion(:hasGenre :Forrest_Gump :Drama)
+ObjectPropertyAssertion(:hasWriter :Forrest_Gump :Eric_Roth)
+ObjectPropertyAssertion(:hasWriter :Forrest_Gump :Winston_Groom)
+DataPropertyAssertion(:Country :Forrest_Gump "USA")
+DataPropertyAssertion(:Language :Forrest_Gump "English")
+DataPropertyAssertion(:Name :Forrest_Gump "Forrest Gump")
+DataPropertyAssertion(:Year :Forrest_Gump "1994-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Gary_Sinise (:Gary_Sinise)
+
+ClassAssertion(:Actor :Gary_Sinise)
+DataPropertyAssertion(:Age :Gary_Sinise "66"^^xsd:integer)
+DataPropertyAssertion(:Gender :Gary_Sinise "Male")
+DataPropertyAssertion(:Name :Gary_Sinise "Gary Sinise")
+DataPropertyAssertion(:Nationality :Gary_Sinise "American")
+
+# Individual: :Giuseppe_Tornatore (:Giuseppe_Tornatore)
+
+ClassAssertion(:Director :Giuseppe_Tornatore)
+ClassAssertion(:Writer :Giuseppe_Tornatore)
+DataPropertyAssertion(:Age :Giuseppe_Tornatore "65"^^xsd:integer)
+DataPropertyAssertion(:Gender :Giuseppe_Tornatore "Male")
+DataPropertyAssertion(:Name :Giuseppe_Tornatore "Giuseppe Tornatore")
+DataPropertyAssertion(:Nationality :Giuseppe_Tornatore "Italian")
+
+# Individual: :Guillaume_Laurant (:Guillaume_Laurant)
+
+ClassAssertion(:Writer :Guillaume_Laurant)
+DataPropertyAssertion(:Age :Guillaume_Laurant "61"^^xsd:integer)
+DataPropertyAssertion(:Gender :Guillaume_Laurant "Male")
+DataPropertyAssertion(:Name :Guillaume_Laurant "Guillaume Laurant")
+DataPropertyAssertion(:Nationality :Guillaume_Laurant "French")
+
+# Individual: :Hayao_Miyazaki (:Hayao_Miyazaki)
+
+ClassAssertion(:Director :Hayao_Miyazaki)
+ClassAssertion(:Writer :Hayao_Miyazaki)
+DataPropertyAssertion(:Age :Hayao_Miyazaki "81"^^xsd:integer)
+DataPropertyAssertion(:Gender :Hayao_Miyazaki "Male")
+DataPropertyAssertion(:Name :Hayao_Miyazaki "Hayao Miyazaki")
+DataPropertyAssertion(:Nationality :Hayao_Miyazaki "Japanese")
+
+# Individual: :Ike_Barinholtz (:Ike_Barinholtz)
+
+ClassAssertion(:Writer :Ike_Barinholtz)
+DataPropertyAssertion(:Age :Ike_Barinholtz "44"^^xsd:integer)
+DataPropertyAssertion(:Gender :Ike_Barinholtz "Male")
+DataPropertyAssertion(:Name :Ike_Barinholtz "Ike Barinholtz")
+DataPropertyAssertion(:Nationality :Ike_Barinholtz "American")
+
+# Individual: :Jean_Pierre_Jeunet (:Jean_Pierre_Jeunet)
+
+ClassAssertion(:Director :Jean_Pierre_Jeunet)
+DataPropertyAssertion(:Age :Jean_Pierre_Jeunet "68"^^xsd:integer)
+DataPropertyAssertion(:Gender :Jean_Pierre_Jeunet "Male")
+DataPropertyAssertion(:Name :Jean_Pierre_Jeunet "Jean-Pierre Jeunet")
+DataPropertyAssertion(:Nationality :Jean_Pierre_Jeunet "French")
+
+# Individual: :John_Travolta (:John_Travolta)
+
+ClassAssertion(:Actor :John_Travolta)
+DataPropertyAssertion(:Age :John_Travolta "68"^^xsd:integer)
+DataPropertyAssertion(:Gender :John_Travolta "Male")
+DataPropertyAssertion(:Name :John_Travolta "John Travolta")
+DataPropertyAssertion(:Nationality :John_Travolta "American")
+
+# Individual: :Kevin_Hart (:Kevin_Hart)
+
+ClassAssertion(:Actor :Kevin_Hart)
+DataPropertyAssertion(:Age :Kevin_Hart "42"^^xsd:integer)
+DataPropertyAssertion(:Gender :Kevin_Hart "Male")
+DataPropertyAssertion(:Name :Kevin_Hart "Kevin Hart")
+DataPropertyAssertion(:Nationality :Kevin_Hart "American")
+
+# Individual: :Kill_Bill_Volume_1 (:Kill_Bill_Volume_1)
+
+ClassAssertion(:Movie :Kill_Bill_Volume_1)
+ObjectPropertyAssertion(:hasActor :Kill_Bill_Volume_1 :David_Carradine)
+ObjectPropertyAssertion(:hasActor :Kill_Bill_Volume_1 :Lucy_Liu)
+ObjectPropertyAssertion(:hasActor :Kill_Bill_Volume_1 :Uma_Thurman)
+ObjectPropertyAssertion(:hasActor :Kill_Bill_Volume_1 :Vivica_A_Fox)
+ObjectPropertyAssertion(:hasDirector :Kill_Bill_Volume_1 :Quentin_Tarantino)
+ObjectPropertyAssertion(:hasGenre :Kill_Bill_Volume_1 :Action)
+ObjectPropertyAssertion(:hasWriter :Kill_Bill_Volume_1 :Quentin_Tarantino)
+DataPropertyAssertion(:Country :Kill_Bill_Volume_1 "United States")
+DataPropertyAssertion(:Language :Kill_Bill_Volume_1 "English")
+DataPropertyAssertion(:Name :Kill_Bill_Volume_1 "Kill Bill (Volume 1)")
+DataPropertyAssertion(:Year :Kill_Bill_Volume_1 "2003-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Laeta_Kalogridis (:Laeta_Kalogridis)
+
+ClassAssertion(:Writer :Laeta_Kalogridis)
+DataPropertyAssertion(:Age :Laeta_Kalogridis "58"^^xsd:integer)
+DataPropertyAssertion(:Gender :Laeta_Kalogridis "Female")
+DataPropertyAssertion(:Name :Laeta_Kalogridis "Laeta Kalogridis")
+DataPropertyAssertion(:Nationality :Laeta_Kalogridis "American")
+
+# Individual: :Leila_Hatami (:Leila_Hatami)
+
+ClassAssertion(:Actor :Leila_Hatami)
+DataPropertyAssertion(:Age :Leila_Hatami "49"^^xsd:integer)
+DataPropertyAssertion(:Gender :Leila_Hatami "Female")
+DataPropertyAssertion(:Name :Leila_Hatami "Leila Hatami")
+DataPropertyAssertion(:Nationality :Leila_Hatami "Iranian")
+
+# Individual: :Leonardo_DiCaprio (:Leonardo_DiCaprio)
+
+ClassAssertion(:Actor :Leonardo_DiCaprio)
+DataPropertyAssertion(:Age :Leonardo_DiCaprio "47"^^xsd:integer)
+DataPropertyAssertion(:Gender :Leonardo_DiCaprio "Male")
+DataPropertyAssertion(:Name :Leonardo_DiCaprio "Leonardo DiCaprio")
+DataPropertyAssertion(:Nationality :Leonardo_DiCaprio "American")
+
+# Individual: :Lucy_Liu (:Lucy_Liu)
+
+ClassAssertion(:Actor :Lucy_Liu)
+DataPropertyAssertion(:Age :Lucy_Liu "53"^^xsd:integer)
+DataPropertyAssertion(:Gender :Lucy_Liu "Female")
+DataPropertyAssertion(:Name :Lucy_Liu "Lucy Liu")
+DataPropertyAssertion(:Nationality :Lucy_Liu "American")
+
+# Individual: :Mari_Natsuki (:Mari_Natsuki)
+
+ClassAssertion(:Actor :Mari_Natsuki)
+DataPropertyAssertion(:Age :Mari_Natsuki "74"^^xsd:integer)
+DataPropertyAssertion(:Gender :Mari_Natsuki "Female")
+DataPropertyAssertion(:Name :Mari_Natsuki "Mari Natsuki")
+DataPropertyAssertion(:Nationality :Mari_Natsuki "Japanese")
+
+# Individual: :Mark_Ruffalo (:Mark_Ruffalo)
+
+ClassAssertion(:Actor :Mark_Ruffalo)
+DataPropertyAssertion(:Age :Mark_Ruffalo "54"^^xsd:integer)
+DataPropertyAssertion(:Gender :Mark_Ruffalo "Male")
+DataPropertyAssertion(:Name :Mark_Ruffalo "Mark Ruffalo")
+DataPropertyAssertion(:Nationality :Mark_Ruffalo "American")
+
+# Individual: :Martin_Scorsese (:Martin_Scorsese)
+
+ClassAssertion(:Director :Martin_Scorsese)
+DataPropertyAssertion(:Age :Martin_Scorsese "79"^^xsd:integer)
+DataPropertyAssertion(:Gender :Martin_Scorsese "Male")
+DataPropertyAssertion(:Name :Martin_Scorsese "Martin Scorsese")
+DataPropertyAssertion(:Nationality :Martin_Scorsese "American")
+
+# Individual: :Mathieu_Kassovitz (:Mathieu_Kassovitz)
+
+ClassAssertion(:Actor :Mathieu_Kassovitz)
+DataPropertyAssertion(:Age :Mathieu_Kassovitz "54"^^xsd:integer)
+DataPropertyAssertion(:Gender :Mathieu_Kassovitz "Male")
+DataPropertyAssertion(:Name :Mathieu_Kassovitz "Mathieu Kassovitz")
+DataPropertyAssertion(:Nationality :Mathieu_Kassovitz "French")
+
+# Individual: :Miyu_Irino (:Miyu_Irino)
+
+ClassAssertion(:Actor :Miyu_Irino)
+DataPropertyAssertion(:Age :Miyu_Irino "34"^^xsd:integer)
+DataPropertyAssertion(:Gender :Miyu_Irino "Male")
+DataPropertyAssertion(:Name :Miyu_Irino "Miyu Irino")
+DataPropertyAssertion(:Nationality :Miyu_Irino "Japanese")
+
+# Individual: :Mystery (:Mystery)
+
+ClassAssertion(:Genre :Mystery)
+
+# Individual: :Peyman_Moaadi (:Peyman_Moaadi)
+
+ClassAssertion(:Actor :Peyman_Moaadi)
+DataPropertyAssertion(:Age :Peyman_Moaadi "50"^^xsd:integer)
+DataPropertyAssertion(:Gender :Peyman_Moaadi "Male")
+DataPropertyAssertion(:Name :Peyman_Moaadi "Peyman Moaadi")
+DataPropertyAssertion(:Nationality :Peyman_Moaadi "Iranian")
+
+# Individual: :Philippe_Noiret (:Philippe_Noiret)
+
+ClassAssertion(:Actor :Philippe_Noiret)
+DataPropertyAssertion(:Age :Philippe_Noiret "94"^^xsd:integer)
+DataPropertyAssertion(:Gender :Philippe_Noiret "Male")
+DataPropertyAssertion(:Name :Philippe_Noiret "Philippe Noiret")
+DataPropertyAssertion(:Nationality :Philippe_Noiret "French")
+
+# Individual: :Pulp_Fiction (:Pulp_Fiction)
+
+ClassAssertion(:Movie :Pulp_Fiction)
+ObjectPropertyAssertion(:hasActor :Pulp_Fiction :John_Travolta)
+ObjectPropertyAssertion(:hasActor :Pulp_Fiction :Samuel_L_Jackson)
+ObjectPropertyAssertion(:hasDirector :Pulp_Fiction :Quentin_Tarantino)
+ObjectPropertyAssertion(:hasGenre :Pulp_Fiction :Crime)
+ObjectPropertyAssertion(:hasGenre :Pulp_Fiction :Thriller)
+ObjectPropertyAssertion(:hasWriter :Pulp_Fiction :Quentin_Tarantino)
+DataPropertyAssertion(:Country :Pulp_Fiction "United States")
+DataPropertyAssertion(:Language :Pulp_Fiction "English")
+DataPropertyAssertion(:Name :Pulp_Fiction "Pulp Fiction")
+DataPropertyAssertion(:Year :Pulp_Fiction "1994-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Quentin_Tarantino (:Quentin_Tarantino)
+
+ClassAssertion(:Director :Quentin_Tarantino)
+ClassAssertion(:Writer :Quentin_Tarantino)
+DataPropertyAssertion(:Age :Quentin_Tarantino "59"^^xsd:integer)
+DataPropertyAssertion(:Gender :Quentin_Tarantino "Male")
+DataPropertyAssertion(:Name :Quentin_Tarantino "Quentin Tarantino")
+DataPropertyAssertion(:Nationality :Quentin_Tarantino "American")
+
+# Individual: :Rachel_McAdams (:Rachel_McAdams)
+
+ClassAssertion(:Actor :Rachel_McAdams)
+DataPropertyAssertion(:Age :Rachel_McAdams "44"^^xsd:integer)
+DataPropertyAssertion(:Gender :Rachel_McAdams "Female")
+DataPropertyAssertion(:Name :Rachel_McAdams "Rachel McAdams")
+DataPropertyAssertion(:Nationality :Rachel_McAdams "Canadian")
+
+# Individual: :Rawson_Marshall_Thurber (:Rawson_Marshall_Thurber)
+
+ClassAssertion(:Actor :Rawson_Marshall_Thurber)
+ClassAssertion(:Director :Rawson_Marshall_Thurber)
+ClassAssertion(:Writer :Rawson_Marshall_Thurber)
+DataPropertyAssertion(:Age :Rawson_Marshall_Thurber "47"^^xsd:integer)
+DataPropertyAssertion(:Gender :Rawson_Marshall_Thurber "Male")
+DataPropertyAssertion(:Name :Rawson_Marshall_Thurber "Rawson Marshall Thurber")
+DataPropertyAssertion(:Nationality :Rawson_Marshall_Thurber "American")
+
+# Individual: :Richard_Curtis (:Richard_Curtis)
+
+ClassAssertion(:Director :Richard_Curtis)
+ClassAssertion(:Writer :Richard_Curtis)
+DataPropertyAssertion(:Age :Richard_Curtis "65"^^xsd:integer)
+DataPropertyAssertion(:Gender :Richard_Curtis "Male")
+DataPropertyAssertion(:Name :Richard_Curtis "Richard Curtis")
+DataPropertyAssertion(:Nationality :Richard_Curtis "British")
+
+# Individual: :Robert_Zemeckis (:Robert_Zemeckis)
+
+ClassAssertion(:Director :Robert_Zemeckis)
+DataPropertyAssertion(:Age :Robert_Zemeckis "70"^^xsd:integer)
+DataPropertyAssertion(:Gender :Robert_Zemeckis "Male")
+DataPropertyAssertion(:Name :Robert_Zemeckis "Robert Zemeckis")
+DataPropertyAssertion(:Nationality :Robert_Zemeckis "American")
+
+# Individual: :Robin_Wright (:Robin_Wright)
+
+ClassAssertion(:Actor :Robin_Wright)
+DataPropertyAssertion(:Age :Robin_Wright "55"^^xsd:integer)
+DataPropertyAssertion(:Gender :Robin_Wright "Female")
+DataPropertyAssertion(:Name :Robin_Wright "Robin Wright")
+DataPropertyAssertion(:Nationality :Robin_Wright "American")
+
+# Individual: :Romantic (:Romantic)
+
+ClassAssertion(:Genre :Romantic)
+
+# Individual: :Rufus (:Rufus)
+
+ClassAssertion(:Actor :Rufus)
+DataPropertyAssertion(:Age :Rufus "79"^^xsd:integer)
+DataPropertyAssertion(:Gender :Rufus "Male")
+DataPropertyAssertion(:Name :Rufus "Rufus")
+DataPropertyAssertion(:Nationality :Rufus "French")
+
+# Individual: :Rumi_Hiiragi (:Rumi_Hiiragi)
+
+ClassAssertion(:Actor :Rumi_Hiiragi)
+DataPropertyAssertion(:Age :Rumi_Hiiragi "51"^^xsd:integer)
+DataPropertyAssertion(:Gender :Rumi_Hiiragi "Female")
+DataPropertyAssertion(:Name :Rumi_Hiiragi "Rumi Hiiragi")
+DataPropertyAssertion(:Nationality :Rumi_Hiiragi "Japanese")
+
+# Individual: :Samuel_L_Jackson (:Samuel_L_Jackson)
+
+ClassAssertion(:Actor :Samuel_L_Jackson)
+DataPropertyAssertion(:Age :Samuel_L_Jackson "73"^^xsd:integer)
+DataPropertyAssertion(:Gender :Samuel_L_Jackson "Male")
+DataPropertyAssertion(:Name :Samuel_L_Jackson "Samuel L. Jackson")
+DataPropertyAssertion(:Nationality :Samuel_L_Jackson "American")
+
+# Individual: :Sareh_Bayat (:Sareh_Bayat)
+
+ClassAssertion(:Actor :Sareh_Bayat)
+DataPropertyAssertion(:Age :Sareh_Bayat "52"^^xsd:integer)
+DataPropertyAssertion(:Gender :Sareh_Bayat "Female")
+DataPropertyAssertion(:Name :Sareh_Bayat "Sareh Bayat")
+DataPropertyAssertion(:Nationality :Sareh_Bayat "Iranian")
+
+# Individual: :Shahab_Hosseini (:Shahab_Hosseini)
+
+ClassAssertion(:Actor :Shahab_Hosseini)
+DataPropertyAssertion(:Age :Shahab_Hosseini "48"^^xsd:integer)
+DataPropertyAssertion(:Gender :Shahab_Hosseini "Male")
+DataPropertyAssertion(:Name :Shahab_Hosseini "Shahab Hosseini")
+DataPropertyAssertion(:Nationality :Shahab_Hosseini "Iranian")
+
+# Individual: :Shutter_Island (:Shutter_Island)
+
+ClassAssertion(:Movie :Shutter_Island)
+ObjectPropertyAssertion(:hasActor :Shutter_Island :Ben_Kingsley)
+ObjectPropertyAssertion(:hasActor :Shutter_Island :Leonardo_DiCaprio)
+ObjectPropertyAssertion(:hasActor :Shutter_Island :Mark_Ruffalo)
+ObjectPropertyAssertion(:hasDirector :Shutter_Island :Martin_Scorsese)
+ObjectPropertyAssertion(:hasGenre :Shutter_Island :Mystery)
+ObjectPropertyAssertion(:hasGenre :Shutter_Island :Thriller)
+ObjectPropertyAssertion(:hasWriter :Shutter_Island :Laeta_Kalogridis)
+DataPropertyAssertion(:Country :Shutter_Island "United States")
+DataPropertyAssertion(:Language :Shutter_Island "English")
+DataPropertyAssertion(:Name :Shutter_Island "Shutter Island")
+DataPropertyAssertion(:Year :Shutter_Island "2010-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Spirited_Away (:Spirited_Away)
+
+ClassAssertion(:Movie :Spirited_Away)
+ObjectPropertyAssertion(:hasActor :Spirited_Away :Mari_Natsuki)
+ObjectPropertyAssertion(:hasActor :Spirited_Away :Miyu_Irino)
+ObjectPropertyAssertion(:hasActor :Spirited_Away :Rumi_Hiiragi)
+ObjectPropertyAssertion(:hasDirector :Spirited_Away :Hayao_Miyazaki)
+ObjectPropertyAssertion(:hasGenre :Spirited_Away :Adventure)
+ObjectPropertyAssertion(:hasGenre :Spirited_Away :Animation)
+ObjectPropertyAssertion(:hasGenre :Spirited_Away :Family)
+ObjectPropertyAssertion(:hasWriter :Spirited_Away :Hayao_Miyazaki)
+DataPropertyAssertion(:Country :Spirited_Away "Japan")
+DataPropertyAssertion(:Language :Spirited_Away "Japanese")
+DataPropertyAssertion(:Name :Spirited_Away "Spirited Away")
+DataPropertyAssertion(:Year :Spirited_Away "2001-01-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :Thriller (:Thriller)
+
+ClassAssertion(:Genre :Thriller)
+
+# Individual: :Tom_Hanks (:Tom_Hanks)
+
+ClassAssertion(:Actor :Tom_Hanks)
+DataPropertyAssertion(:Age :Tom_Hanks "65"^^xsd:integer)
+DataPropertyAssertion(:Gender :Tom_Hanks "Male")
+DataPropertyAssertion(:Name :Tom_Hanks "Tom Hanks")
+DataPropertyAssertion(:Nationality :Tom_Hanks "American")
+
+# Individual: :Uma_Thurman (:Uma_Thurman)
+
+ClassAssertion(:Actor :Uma_Thurman)
+DataPropertyAssertion(:Age :Uma_Thurman "51"^^xsd:integer)
+DataPropertyAssertion(:Gender :Uma_Thurman "Female")
+DataPropertyAssertion(:Name :Uma_Thurman "Uma Thurman")
+DataPropertyAssertion(:Nationality :Uma_Thurman "American")
+
+# Individual: :Vivica_A_Fox (:Vivica_A_Fox)
+
+ClassAssertion(:Actor :Vivica_A_Fox)
+DataPropertyAssertion(:Age :Vivica_A_Fox "57"^^xsd:integer)
+DataPropertyAssertion(:Gender :Vivica_A_Fox "Female")
+DataPropertyAssertion(:Name :Vivica_A_Fox "Vivica A. Fox")
+DataPropertyAssertion(:Nationality :Vivica_A_Fox "American")
+
+# Individual: :Winston_Groom (:Winston_Groom)
+
+ClassAssertion(:Writer :Winston_Groom)
+DataPropertyAssertion(:Age :Winston_Groom "101"^^xsd:integer)
+DataPropertyAssertion(:Gender :Winston_Groom "Male")
+DataPropertyAssertion(:Name :Winston_Groom "Winston Groom")
+DataPropertyAssertion(:Nationality :Winston_Groom "American")
+
+
+)
