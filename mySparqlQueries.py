@@ -61,24 +61,22 @@ def get_writers(g):
         myList.append(my_writer)
     return myList
 
-def get_general(g, writers):
-    # Use map to handle escaping quotes outside of the f-string
-    placeholder = ', '.join(writers)
+def get_general(g, actors):
+    placeholder = ', :'.join(actors)
     print(placeholder)
     query = f"""
         SELECT ?movie WHERE {{
             ?movie a :Movie.
-            ?movie :hasActor ?actor.
-            ?actor a :Tom_Hanks.
+            ?movie :hasActor :{placeholder}.
         }}
     """
     print("Querying for specific writers:")
     myList = []
     try:
         for row in g.query(query):
-            my_writer = row.movie.split("#")[-1]
-            print(f"movie: {my_writer}")
-            myList.append(my_writer)
+            my_movie = row.movie.split("#")[-1]
+            print(f"movie: {my_movie}")
+            myList.append(my_movie)
     except Exception as e:
         print(f"An error occurred: {e}")
     return myList
@@ -90,4 +88,4 @@ gr.parse("F:/PythonProjects/OntologiesPart3/mm.ttl", format="ttl")
 
 print(f"Graph has {len(gr)} statements.")
 get_actors(gr)
-get_general(gr, ["David_Stassen", "Ike_Barinholtz"])
+get_general(gr, ["Tom_Hanks", "Robin_Wright"])
