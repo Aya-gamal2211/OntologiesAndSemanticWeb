@@ -24,10 +24,8 @@
     ].
 
 ### Rule 4: The gender property must have values of subproperty female and male
-    :GenderValues a owl:Class ;
-                owl:oneOf (:Female :Male) .
+    :Gender a owl:Class ;
+        owl:oneOf (:Female :Male) .
 
-    :Gender a owl:DatatypeProperty ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:GenderValues .
+
 
