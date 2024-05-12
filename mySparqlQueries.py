@@ -95,7 +95,8 @@ def get_general(g, actors=None, directors=None, genres=None):
         print(f"An error occurred: {e}")
     return myList
 
-gr = Graph()
-gr.parse("F:/PythonProjects/OntologiesPart3/mm.ttl", format="ttl")
-movies = get_general(gr, actors=["Tom_Hanks"],directors=["Robert_Zemeckis"], genres=["Comedy"])
-print(movies)
+if __name__ == "__main__":
+    gr = Graph()
+    gr.parse("F:/PythonProjects/OntologiesPart3/mm.ttl", format="ttl")
+    movies = get_general(gr, actors=["Tom_Hanks"],directors=["Robert_Zemeckis"], genres=["Comedy"])
+    print(movies)
