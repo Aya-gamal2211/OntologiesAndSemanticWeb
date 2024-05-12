@@ -61,31 +61,41 @@ def get_writers(g):
         myList.append(my_writer)
     return myList
 
-def get_general(g, actors):
-    placeholder = ', :'.join(actors)
-    print(placeholder)
+def get_general(g, actors=None, directors=None, genres=None):
+    conditions = []
+    
+    if actors:
+        actor_placeholders = ', '.join(f':{actor}' for actor in actors)
+        conditions.append(f"?movie :hasActor {actor_placeholders}")
+
+    if directors:
+        director_placeholders = ', '.join(f':{director}' for director in directors)
+        conditions.append(f"?movie :hasDirector {director_placeholders}")
+
+    if genres:
+        genre_placeholders = ', '.join(f':{genre}' for genre in genres)
+        conditions.append(f"?movie :hasGenre {genre_placeholders}")
+
+    combined_conditions = " .\n".join(conditions)
+    
     query = f"""
-        SELECT ?movie WHERE {{
+        SELECT DISTINCT ?movie WHERE {{
             ?movie a :Movie.
-            ?movie :hasActor :{placeholder}.
+            {combined_conditions}
         }}
     """
-    print("Querying for specific writers:")
+    print("Querying for specific movie characteristics:")
     myList = []
     try:
         for row in g.query(query):
             my_movie = row.movie.split("#")[-1]
-            print(f"movie: {my_movie}")
+            print(f"Movie: {my_movie}")
             myList.append(my_movie)
     except Exception as e:
         print(f"An error occurred: {e}")
     return myList
 
-
-
 gr = Graph()
 gr.parse("F:/PythonProjects/OntologiesPart3/mm.ttl", format="ttl")
-
-print(f"Graph has {len(gr)} statements.")
-get_actors(gr)
-get_general(gr, ["Tom_Hanks", "Robin_Wright"])
+movies = get_general(gr, actors=["Tom_Hanks"],directors=["Robert_Zemeckis"], genres=["Comedy"])
+print(movies)
