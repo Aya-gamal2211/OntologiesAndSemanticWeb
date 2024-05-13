@@ -5,6 +5,7 @@ gr.parse("F:/PythonProjects/OntologiesPart3/mm.ttl", format="ttl")
 
 print(f"Graph has {len(gr)} statements.")
 
+
 def get_actors(g):
     query1 = """
     SELECT ?actor WHERE {
@@ -22,7 +23,8 @@ def get_actors(g):
         myList.append(my_actor)
     return myList
 
-def writers():
+
+def writers(g):
     query3 = """
         SELECT ?writer WHERE {
         ?writer a :Writer.
@@ -33,8 +35,9 @@ def writers():
         my_writer = row.writer.split("#")[-1]
         print(f"Writer: {my_writer}")
 
+
 def get_directors(g):
-    query="""
+    query = """
     SELECT ?director WHERE {
       ?director a :Director.
     }
@@ -47,8 +50,9 @@ def get_directors(g):
         myList.append(my_director)
     return myList
 
+
 def get_genres(g):
-    query="""
+    query = """
     SELECT ?genre WHERE {
       ?genre a :Genre
     }
@@ -61,8 +65,9 @@ def get_genres(g):
         myList.append(my_genre)
     return myList
 
-def ThrillerMoviesDirectors():
-    query="""
+
+def ThrillerMoviesDirectors(g):
+    query = """
     SELECT ?movie ?director WHERE {
       ?movie a :Movie;
             :hasGenre :Thriller;
@@ -73,9 +78,10 @@ def ThrillerMoviesDirectors():
     for row in g.query(query):
         my_movie = row.movie.split("#")[-1]
         my_director = row.director.split("#")[-1]
-        print(f"Movie: {my_movie}",f"Director: {my_director}")
+        print(f"Movie: {my_movie}", f"Director: {my_director}")
 
-def crime_thriller_movies():
+
+def crime_thriller_movies(g):
     query = """
     SELECT ?movie WHERE {
       ?movie a :Movie;
@@ -87,7 +93,8 @@ def crime_thriller_movies():
         movie_name = row.movie.split('#')[-1]
         print(f"Movie: {movie_name}")
 
-def male_actors_of_movie(movie_uri):
+
+def male_actors_of_movie(movie_uri, g):
     query = f"""
     SELECT ?actor WHERE {{
       :{movie_uri} a :Movie;
@@ -100,7 +107,8 @@ def male_actors_of_movie(movie_uri):
         actor_name = row.actor.split('#')[-1] if '#' in row.actor else row.actor.split('/')[-1]
         print(f"Actor: {actor_name}")
 
-def count_action_thriller_movies():
+
+def count_action_thriller_movies(g):
     # This query assumes that a movie can have multiple genres and counts movies that include both genres.
     query = """
     SELECT (COUNT(DISTINCT ?movie) as ?movieCount) WHERE {
@@ -115,7 +123,8 @@ def count_action_thriller_movies():
         # The count result can be accessed using row.movieCount in RDFlib
         print("Count of Action and Thriller Movies:", row.movieCount)
 
-def movies_by_writer(writer_uri):
+
+def movies_by_writer(writer_uri, g):
     query = f"""
     SELECT ?movie WHERE {{
       ?movie a :Movie;
@@ -127,7 +136,8 @@ def movies_by_writer(writer_uri):
         movie_name = row.movie.split('#')[-1]
         print(f"Movie: {movie_name}")
 
-def movies_by_language(language):
+
+def movies_by_language(language, g):
     query = f"""
     SELECT ?movie WHERE {{
       ?movie a :Movie;
@@ -139,7 +149,8 @@ def movies_by_language(language):
         movie_name = row.movie.split('#')[-1]
         print(f"Movie: {movie_name}")
 
-def actors_by_age(min_age):
+
+def actors_by_age(min_age, g):
     query = f"""
     SELECT ?actor WHERE {{
       ?actor a :Actor;
@@ -152,7 +163,8 @@ def actors_by_age(min_age):
         actor_name = row.actor.split('#')[-1]
         print(f"Actor: {actor_name}")
 
-def actors_and_their_movies():
+
+def actors_and_their_movies(g):
     query = """
     SELECT ?actor ?movie WHERE {
       ?movie a :Movie;
@@ -166,7 +178,8 @@ def actors_and_their_movies():
         movie_name = row.movie.split('#')[-1]
         print(f"Actor: {actor_name}, Movie: {movie_name}")
 
-def count_movies_by_directors():
+
+def count_movies_by_directors(g):
     query = """
     SELECT ?director (COUNT(?movie) as ?numberOfMovies) WHERE {
       ?movie a :Movie;
@@ -179,7 +192,8 @@ def count_movies_by_directors():
         director_name = row.director.split('#')[-1]
         print(f"Director: {director_name}, Number of Movies: {row.numberOfMovies}")
 
-def directors_who_act_and_direct():
+
+def directors_who_act_and_direct(g):
     query = """
     SELECT ?movie ?director WHERE {
       ?movie a :Movie;
@@ -194,7 +208,8 @@ def directors_who_act_and_direct():
         movie_name = row.movie.split('#')[-1]
         print(f"Director: {director_name}, Movie: {movie_name}")
 
-def directors_who_never_acted():
+
+def directors_who_never_acted(g):
     query = """
     SELECT ?director WHERE {
       ?director a :Director.
@@ -208,7 +223,8 @@ def directors_who_never_acted():
         director_name = row.director.split('#')[-1]
         print(f"Director: {director_name}")
 
-def actors_in_drama():
+
+def actors_in_drama(g):
     query = """
     SELECT DISTINCT ?actor WHERE {
       ?movie a :Movie;
@@ -222,8 +238,8 @@ def actors_in_drama():
         actor_name = row.actor.split('#')[-1]  # Assuming URI ends with '#'
         print(f"Actor: {actor_name}")
 
-def query_movies_with_optional_info():
 
+def query_movies_with_optional_info(g):
     query = """
     SELECT ?movie ?director ?writer WHERE {
       ?movie a :Movie.
@@ -244,7 +260,8 @@ def query_movies_with_optional_info():
         writer_name = row.writer.split('#')[-1] if row.writer is not None else "No writer"
         print(f"Movie: {movie_name}, Director: {director_name}, Writer: {writer_name}")
 
-def query_people_by_roles_and_genres():
+
+def query_people_by_roles_and_genres(g):
     query = """
     SELECT ?person ?role ?genre WHERE {
       {
@@ -269,7 +286,8 @@ def query_people_by_roles_and_genres():
         genre = row.genre.split('#')[-1] if '#' in row.genre else row.genre.split('/')[-1]
         print(f"Person: {person_name}, Role: {role}, Genre: {genre}")
 
-def construct_roles_graph():
+
+def construct_roles_graph(g):
     query = """
     SELECT ?person ?movie ?role WHERE {
       {
@@ -295,7 +313,8 @@ def construct_roles_graph():
         role = row.role
         print(f"Person: {person_name}, Movie: {movie_name}, Role: {role}")
 
-def check_for_thriller_with_female_director():
+
+def check_for_thriller_with_female_director(g):
     query = """
     ASK {
       ?movie a :Movie;
@@ -314,7 +333,8 @@ def check_for_thriller_with_female_director():
     else:
         print("No, there are no thriller movies directed by a female director.")
 
-def describe_movie(title):
+
+def describe_movie(title, g):
     # Properly formatted SPARQL query with title as a string literal
     query = f"""
     DESCRIBE ?movie
@@ -334,6 +354,7 @@ def describe_movie(title):
         object_local = o.split('#')[-1] if isinstance(o, URIRef) and '#' in str(o) else str(o)
         print(f"Subject: {subject_local}, Predicate: {predicate_local}, Object: {object_local}")
 
+
 def list_movies_with_multiple_genres(g):
     query = """
     SELECT ?movie (COUNT(?genre) AS ?genresCount) WHERE {
@@ -352,6 +373,7 @@ def list_movies_with_multiple_genres(g):
         movie_name = movie_uri.split('#')[-1] if '#' in str(movie_uri) else str(movie_uri)
         genres_count = row.genresCount
         print(f"Movie: {movie_name}, Genres Count: {genres_count}")
+
 
 def list_movies_by_director_actors(g):
     query = """
@@ -373,6 +395,7 @@ def list_movies_by_director_actors(g):
             print(f"Movie: {movie_name}")
     except Exception as e:
         print(f"An error occurred: {e}")
+
 
 def find_actors_in_multiple_genres(g):
     query = """
@@ -425,6 +448,7 @@ def list_movies_with_triple_roles(g):
         movie_name = movie_uri.split('#')[-1] if '#' in str(movie_uri) else str(movie_uri)
         print(f"Movie: {movie_name}")
 
+
 def list_directors_with_no_thriller_movies(g):
     query = """
     SELECT DISTINCT ?director WHERE {
@@ -445,4 +469,3 @@ def list_directors_with_no_thriller_movies(g):
         director_uri = row.director
         director_name = director_uri.split('#')[-1] if '#' in str(director_uri) else str(director_uri)
         print(f"Director: {director_name}")
-
