@@ -685,8 +685,8 @@
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Rawson_Marshall_Thurber
 :Rawson_Marshall_Thurber rdf:type owl:NamedIndividual ,
                                   :Actor ,
-                                  :Director ,
-                                  :Writer ;
+                                  :Director ;
+                                  
                          :Age 47 ;
                          :Gender "Male" ;
                          :Name "Rawson Marshall Thurber" ;
