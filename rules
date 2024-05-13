@@ -7,7 +7,7 @@
 :ActorDirector rdf:type owl:Class ;
                owl:intersectionOf (:Actor :Director) .
 
-### Rule: Cardinality rules on movie to have min.
+### Rule: Cardinality rules on movie to have minimium 1 actor , 1 genre and 2 writers
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Movie
 :Movie rdf:type owl:Class ;
