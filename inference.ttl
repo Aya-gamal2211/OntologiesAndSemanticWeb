@@ -362,9 +362,6 @@
                                 :Kevin_Hart ,
                                 :Rawson_Marshall_Thurber ;
                       :hasDirector :Rawson_Marshall_Thurber ;
-                      :hasGenre :Action ,
-                                :Comedy ,
-                                :Thriller ;
                       :hasWriter :David_Stassen ,
                                  :Ike_Barinholtz ;
                       :Country "United States" ;
