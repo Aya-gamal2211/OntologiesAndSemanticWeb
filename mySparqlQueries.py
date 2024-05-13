@@ -54,7 +54,7 @@ def get_writers(g):
     return myList
 
 
-def get_general(g, actors=None, directors=None, genres=None):
+def get_general(g, actors=None, directors=None ,writers=None, genres=None):
     conditions = []
 
     if actors:
@@ -68,7 +68,9 @@ def get_general(g, actors=None, directors=None, genres=None):
     if genres:
         genre_placeholders = ', '.join(f':{genre}' for genre in genres)
         conditions.append(f"?movie :hasGenre {genre_placeholders}")
-
+    if writers:
+        writer_placeholders = ', '.join(f':{writer}'for writer in writers)
+        conditions.append(f"?movie :hasWriter {writer_placeholders}")
     combined_conditions = " .\n".join(conditions)
 
     query = f"""
@@ -92,6 +94,7 @@ def get_general(g, actors=None, directors=None, genres=None):
 
 if __name__ == "__main__":
     gr = Graph()
-    gr.parse("Ontologies/mm.ttl", format="ttl")
+    gr.parse("mm.ttl", format="ttl")
     movies = get_general(gr, actors=["Tom_Hanks"], directors=["Robert_Zemeckis"], genres=["Comedy"])
+    # movies = get_general(gr, writers=["Richard_Curtis"])
     print(movies)
