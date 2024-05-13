@@ -90,9 +90,23 @@
          rdfs:domain :Movie ;
          rdfs:range xsd:string .
 
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Female
+:Female rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :Gender .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Gender
+:Gender rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Person ;
+        rdfs:range xsd:string .
+
+
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Genre
 :Genre rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty .
+
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Language
 :Language rdf:type owl:DatatypeProperty ;
@@ -100,11 +114,18 @@
           rdfs:domain :Movie ;
           rdfs:range xsd:string .
 
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Male
+:Male rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :Gender .
+
+
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Name
 :Name rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
       rdfs:domain :Person ;
       rdfs:range xsd:string .
+
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Nationality
 :Nationality rdf:type owl:DatatypeProperty ;
@@ -132,6 +153,16 @@
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Actor
 :Actor rdf:type owl:Class ;
        rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#ActorDirector
+:ActorDirector rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :Actor
+                                                          :Director
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :Person .
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Adventure
@@ -169,7 +200,22 @@
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Movie
-:Movie rdf:type owl:Class .
+:Movie rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Movie
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasGenre ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Movie
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasWriter ;
+                             owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Movie
+                           ] .
 
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Person
@@ -213,6 +259,8 @@
                       :Domhnall_Gleeson ,
                       :Rachel_McAdams ;
             :hasDirector :Richard_Curtis ;
+            :hasGenre :Comedy ,
+                      :Drama ;
             :hasWriter :Richard_Curtis ;
             :Country "United Kingdom" ;
             :Language "English" ;
@@ -691,6 +739,7 @@
 
 ###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Robin_Wright
 :Robin_Wright rdf:type owl:NamedIndividual ,
+                        :Director,
                        :Actor ;
               :Age 55 ;
               :Gender "Female" ;
@@ -754,7 +803,8 @@
                 :hasActor :Ben_Kingsley ,
                           :Leonardo_DiCaprio ,
                           :Mark_Ruffalo ;
-                :hasDirector :Martin_Scorsese ;
+                :hasDirector :Martin_Scorsese ,
+                             :Robin_Wright ;
                 :hasGenre :Mystery ,
                           :Thriller ;
                 :hasWriter :Laeta_Kalogridis ;
@@ -790,7 +840,7 @@
 :Tom_Hanks rdf:type owl:NamedIndividual ,
                     :Actor ;
            :Age 65 ;
-           :Gender "unknown" ;
+           :Gender "Unknown" ;
            :Name "Tom Hanks" ;
            :Nationality "American" .
 
@@ -820,44 +870,6 @@
                :Gender "Male" ;
                :Name "Winston Groom" ;
                :Nationality "American" .
-### Rule: ActorDirector is an intersection of Actor and Director
-### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#ActorDirector
-:ActorDirector rdf:type owl:Class ;
-               owl:intersectionOf (:Actor :Director) .
-
-### Rule: Movie must have at least one actor
-### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Movie
-:Movie rdf:type owl:Class ; 
-       rdfs:subClassOf [
-           a owl:Restriction ; 
-           owl:onProperty :hasActor ;
-           owl:minCardinality "1"^^<http://www.w3.org/2001/XMLSchema#int> ] .
-
-### Rule: Movie must have at least two genres
-### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Movie
-:Movie rdf:type owl:Class ;
-       rdfs:subClassOf [
-           rdf:type owl:Restriction ;
-           owl:onProperty :hasGenre ;
-           owl:minCardinality "1"^^<http://www.w3.org/2001/XMLSchema#int> ].
-
-### Rule: Movie must have at least two writers
-### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Movie
-:Movie rdfs:subClassOf [
-           rdf:type owl:Restriction ;
-           owl:onProperty :hasWriter ;
-           owl:minCardinality "2"^^xsd:nonNegativeInteger ].
-
-### Rule: Gender property must have values "Female" or "Male"
-### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Gender
-:Gender a owl:DatatypeProperty ;
-        rdfs:domain :Person ;
-        rdfs:range [
-            owl:unionOf (
-                "Female"^^xsd:string
-                "Male"^^xsd:string
-            )
-        ] .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
