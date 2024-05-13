@@ -1,0 +1,31 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Rule 1 :Adding individual that is actor and director.
+:ActorDirector a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf ( :Actor :Director )
+    ] .
+
+### Rule 2: Every movie must have at least one actor.
+:Movie a owl:Class ; 
+    rdfs:subClassOf
+        [ a owl:Restriction ; 
+        owl:onProperty :hasActor ;
+        owl:minCardinality "1"^^<http://www.w3.org/2001/XMLSchema#int> ] .
+
+### Rule 3: A movie may consist of more than one genre.
+    :Movie rdfs:subClassOf [
+        rdf:type owl:Restriction ;
+        owl:onProperty :hasGenre ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+    ].
+
+### Rule 4: The gender property must have values of subproperty female and male
+    :Gender a owl:Class ;
+        owl:oneOf (:Female :Male) .
+
+
+
