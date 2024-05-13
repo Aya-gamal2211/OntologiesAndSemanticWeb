@@ -26,6 +26,10 @@
                              owl:minCardinality "2"^^xsd:nonNegativeInteger ;
                              owl:onClass :Movie
                            ] .
+### Rule: ActorDirector is an intersection of Actor and Director and Writer
+### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#ActorDirector
+:ActorDirector rdf:type owl:Class ;
+               owl:intersectionOf (:Actor :Director :Writer) .
 
 ### Rule: Gender property must have values "Female" or "Male"
 ### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Gender
