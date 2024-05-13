@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 from rdflib import Graph, URIRef
-from mySparqlQueries import get_actors, get_directors, get_genres, get_general, get_writers
+from SparqlQueries.mySparqlQueries import get_actors, get_directors, get_genres, get_general, get_writers
 
 # Sample hierarchical data for the tree view
 hierarchy = {
