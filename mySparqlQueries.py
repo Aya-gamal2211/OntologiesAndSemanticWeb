@@ -54,7 +54,7 @@ def get_writers(g):
     return myList
 
 
-def get_general(g, actors=None, directors=None ,writers=None, genres=None):
+def get_general(g, actors=None, directors=None, writers=None, genres=None):
     conditions = []
 
     if actors:
@@ -69,7 +69,7 @@ def get_general(g, actors=None, directors=None ,writers=None, genres=None):
         genre_placeholders = ', '.join(f':{genre}' for genre in genres)
         conditions.append(f"?movie :hasGenre {genre_placeholders}")
     if writers:
-        writer_placeholders = ', '.join(f':{writer}'for writer in writers)
+        writer_placeholders = ', '.join(f':{writer}' for writer in writers)
         conditions.append(f"?movie :hasWriter {writer_placeholders}")
     combined_conditions = " .\n".join(conditions)
 

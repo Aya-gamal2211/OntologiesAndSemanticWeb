@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 from rdflib import Graph, URIRef
-from mySparqlQueries import get_actors, get_directors, get_genres, get_general
+from mySparqlQueries import get_actors, get_directors, get_genres, get_general, get_writers
 
 # Sample hierarchical data for the tree view
 hierarchy = {
@@ -14,7 +14,8 @@ hierarchy = {
     ],
     'Genres': [
         # 'Sci-Fi', 'Action', 'Crime'
-    ]
+    ],
+    'Writers': []
 }
 
 
@@ -22,8 +23,9 @@ def filter_films():
     include_actors = selected_films['Actors']
     include_directors = selected_films['Directors']
     include_genres = selected_films['Genres']
+    include_writers = selected_films['Writers']
 
-    movies = get_general(graph, include_actors, include_directors, include_genres)
+    movies = get_general(graph, include_actors, include_directors, include_writers, include_genres)
     update_listbox(result_display, movies)
     print(f"movies : {movies}")
 
@@ -57,6 +59,8 @@ def import_films():
     hierarchy['Actors'] = get_actors(g)
     hierarchy['Directors'] = get_directors(g)
     hierarchy['Genres'] = get_genres(g)
+    hierarchy['Writers'] = get_writers(g)
+
     refresh_tree(tree, hierarchy)
     global graph
     graph = g
@@ -77,10 +81,8 @@ def item_selected(event):
 
     # Append the film under the correct genre
     if genre != "Film Genres":
-        # print(f'genreee {genre} itemmmm {item}')
         if genre and item not in selected_films[genre]:
             selected_films[genre].append(item)
-            # print(selected_films)
         else:
             selected_films[genre].remove(item)
 
@@ -91,6 +93,8 @@ def item_selected(event):
         update_listbox(director_listbox, selected_films[genre])
     elif genre == 'Genres':
         update_listbox(genre_listbox, selected_films[genre])
+    elif genre == 'Writers':
+        update_listbox(writers_listbox, selected_films[genre])
 
 
 def create_tree_panel(parent, hierarchy):
@@ -120,7 +124,7 @@ tree = create_tree_panel(left_frame, hierarchy)
 def create_scrollable_listbox(parent, items):
     frame = tk.Frame(parent)
     scrollbar = tk.Scrollbar(frame, orient=tk.VERTICAL)
-    listbox = tk.Listbox(frame, yscrollcommand=scrollbar.set, selectmode=tk.MULTIPLE)
+    listbox = tk.Listbox(frame, yscrollcommand=scrollbar.set, selectmode=tk.MULTIPLE, height=5)
     scrollbar.config(command=listbox.yview)
     scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
     listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
@@ -130,16 +134,22 @@ def create_scrollable_listbox(parent, items):
     return listbox
 
 
+# Actor
 tk.Label(main_frame, text="Include Actors:").pack()
 actor_listbox = create_scrollable_listbox(main_frame, selected_films['Actors'])
 actor_listbox.pack()
 
-# Director input as a Combobox
+# Director
 tk.Label(main_frame, text="Include Directors:").pack()
 director_listbox = create_scrollable_listbox(main_frame, selected_films['Directors'])
 director_listbox.pack()
 
-# Genre input as a Combobox
+# Writers
+tk.Label(main_frame, text="Include Writers:").pack()
+writers_listbox = create_scrollable_listbox(main_frame, selected_films['Writers'])
+writers_listbox.pack()
+
+# Genre
 tk.Label(main_frame, text="Include Genres:").pack()
 genre_listbox = create_scrollable_listbox(main_frame, selected_films['Genres'])
 genre_listbox.pack()
@@ -156,6 +166,10 @@ filter_button.pack()
 results = []
 result_display = create_scrollable_listbox(main_frame, results)
 result_display.pack()
+
+# padding
+tk.Label(main_frame, text="").pack()
+
 # result_display.configure(state='disabled')
-window.geometry('1500x700')
+window.geometry('800x600')
 window.mainloop()
