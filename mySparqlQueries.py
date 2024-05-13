@@ -82,7 +82,10 @@ def get_general(g, actors=None, directors=None, genres=None):
         for row in g.query(query):
             my_movie = row.movie.split("#")[-1]
             myList.append(my_movie)
+        if len(myList) == 0:
+            myList.append("No Movies found .... please check for contradicting conditions !")
     except Exception as e:
+        myList.append("No Movies found .... please check for contradicting conditions !")
         print(f"An error occurred: {e}")
     return myList
 
