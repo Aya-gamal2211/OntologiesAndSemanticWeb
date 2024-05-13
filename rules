@@ -2,30 +2,38 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-### Rule 1 :Adding individual that is actor and director.
-:ActorDirector a owl:Class ;
-    owl:equivalentClass [
-        a owl:Class ;
-        owl:intersectionOf ( :Actor :Director )
-    ] .
+### Rule: ActorDirector is an intersection of Actor and Director
+### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#ActorDirector
+:ActorDirector rdf:type owl:Class ;
+               owl:intersectionOf (:Actor :Director) .
 
-### Rule 2: Every movie must have at least one actor.
-:Movie a owl:Class ; 
-    rdfs:subClassOf
-        [ a owl:Restriction ; 
-        owl:onProperty :hasActor ;
-        owl:minCardinality "1"^^<http://www.w3.org/2001/XMLSchema#int> ] .
+### Rule: Cardinality rules on movie to have min.
 
-### Rule 3: A movie may consist of more than one genre.
-    :Movie rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty :hasGenre ;
-        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-    ].
+###  http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Movie
+:Movie rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Movie
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasGenre ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Movie
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasWriter ;
+                             owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Movie
+                           ] .
 
-### Rule 4: The gender property must have values of subproperty female and male
-    :Gender a owl:Class ;
-        owl:oneOf (:Female :Male) .
-
-
-
+### Rule: Gender property must have values "Female" or "Male"
+### http://www.semanticweb.org/shaima/ontologies/2024/3/untitled-ontology-2#Gender
+:Gender a owl:DatatypeProperty ;
+        rdfs:domain :Person ;
+        rdfs:range [
+            owl:unionOf (
+                "Female"^^xsd:string
+                "Male"^^xsd:string
+            )
+        ] .
